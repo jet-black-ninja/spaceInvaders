@@ -1,5 +1,5 @@
 #include "game.hpp"
-#include <iostream>
+
 Game::Game()
 {
 }
@@ -13,7 +13,6 @@ void Game::Update() {
         laser.Update();
     }
     DeleteInactiveLaser();
-    
 }
 
 void Game::Draw() {

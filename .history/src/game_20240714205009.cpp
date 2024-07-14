@@ -13,7 +13,7 @@ void Game::Update() {
         laser.Update();
     }
     DeleteInactiveLaser();
-    
+    std::cout<<"vector size" <<spaceship.lasers.size()
 }
 
 void Game::Draw() {

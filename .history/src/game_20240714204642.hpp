@@ -7,8 +7,7 @@ class Game {
         void Draw();
         void Update();
         void HandleInput();
-
+        
     private:
-    void DeleteInactiveLaser();
         Spaceship spaceship;    
 };

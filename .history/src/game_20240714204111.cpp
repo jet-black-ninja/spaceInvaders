@@ -1,5 +1,5 @@
 #include "game.hpp"
-#include <iostream>
+
 Game::Game()
 {
 }
@@ -9,11 +9,7 @@ Game::~Game(){
 }
 
 void Game::Update() {
-    for(auto & laser: spaceship.lasers){
-        laser.Update();
-    }
-    DeleteInactiveLaser();
-    
+
 }
 
 void Game::Draw() {
@@ -31,16 +27,5 @@ void Game::HandleInput() {
         spaceship.MoveRight();
     }else if(IsKeyDown(KEY_SPACE)) {
         spaceship.FireLaser();
-    }
-}
-
-void Game::DeleteInactiveLaser()
-{
-    for(auto it = spaceship.lasers.begin() ; it!= spaceship.lasers.end(); ){
-        if(!it->active){
-            it = spaceship.lasers.erase(it);
-        }else {
-            it++;
-        }
     }
 }

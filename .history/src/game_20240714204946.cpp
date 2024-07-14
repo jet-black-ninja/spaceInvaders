@@ -13,7 +13,6 @@ void Game::Update() {
         laser.Update();
     }
     DeleteInactiveLaser();
-    
 }
 
 void Game::Draw() {

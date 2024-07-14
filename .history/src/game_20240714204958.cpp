@@ -13,7 +13,7 @@ void Game::Update() {
         laser.Update();
     }
     DeleteInactiveLaser();
-    
+    std::cout<<""
 }
 
 void Game::Draw() {

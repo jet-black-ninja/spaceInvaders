@@ -8,7 +8,7 @@ int main() {
     Color GREY = {29, 29, 27, 255}; //bg color
     
     InitWindow(windowWidth, windowHeight, "Space Invaders");
-    SetTargetFPS(60);
+    SetTargetFPS(144);
     Game game;
     
     while(WindowShouldClose()==false){

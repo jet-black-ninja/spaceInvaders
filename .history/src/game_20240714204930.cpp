@@ -1,5 +1,5 @@
 #include "game.hpp"
-#include <iostream>
+
 Game::Game()
 {
 }
@@ -12,7 +12,6 @@ void Game::Update() {
     for(auto & laser: spaceship.lasers){
         laser.Update();
     }
-    DeleteInactiveLaser();
     
 }
 
