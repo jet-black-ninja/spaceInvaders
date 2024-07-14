@@ -1,0 +1,2 @@
+all:
+	g++ -g --std=c++10 -I../include -L../lib ../src/*.cpp -l
