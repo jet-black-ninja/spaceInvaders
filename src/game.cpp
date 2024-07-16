@@ -4,11 +4,15 @@
 
 Game::Game()
 {
+    music =LoadMusicStream("Sounds/music.ogg");
+    explosionSound = LoadSound("Sounds/explosion.ogg");
+    PlayMusicStream(music);
     InitGame();
 }
 
 Game::~Game(){
 Alien::UnloadImages();
+UnloadMusicStream(music);
 }
 
 void Game::Update() {
@@ -165,6 +169,8 @@ void Game::CheckForCollisions(){
         auto it = aliens.begin();
         while(it!=aliens.end()){
             if(CheckCollisionRecs(it ->getRect(), laser.getRect())){
+
+                PlaySound(explosionSound);
                 if(it->type ==1){
                     score += 100;
                 }  else if( it-> type==2){
@@ -192,6 +198,7 @@ void Game::CheckForCollisions(){
             }
         }
     if(CheckCollisionRecs(mysteryShip.getRect(), laser.getRect())){
+        PlaySound(explosionSound);
         score+=500;
         mysteryShip.alive = false;
         laser.active = false;

@@ -15,6 +15,7 @@ class Game {
         int lives;
         int score;
         int highScore;
+        Music music ;
     private:
         void DeleteInactiveLaser();
         std::vector<Obstacle> CreateObstacles();
@@ -39,4 +40,5 @@ class Game {
         void GameOver();
         void Reset();
         void InitGame();
+        Sound explosionSound;
 };

@@ -22,7 +22,7 @@ int main() {
     Game game;
     
     while(WindowShouldClose()==false){
-    
+        UpdateMusicStream(game.music);
         game.HandleInput();
         game.Update();
         BeginDrawing();
