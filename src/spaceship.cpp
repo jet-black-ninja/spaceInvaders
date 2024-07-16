@@ -21,7 +21,7 @@ void Spaceship::MoveLeft(){
     position.x-=moveDegree;
 
     if(position.x<25){
-        position.x=0;
+        position.x=25;
     }
 }
 

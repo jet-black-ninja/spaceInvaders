@@ -1,5 +1,7 @@
 #include "game.hpp"
 #include <iostream>
+#include <fstream>
+
 Game::Game()
 {
     InitGame();
@@ -170,11 +172,13 @@ void Game::CheckForCollisions(){
                 }else if(it->type ==3){
                     score += 300;
                 }
+                CheckForHighScore();
                 it = aliens.erase(it);
                 laser.active = false;
             }else{
                 ++it;
             }
+            
         }
         for(auto & obstacle : obstacles){
             auto it = obstacle.Blocks.begin();
@@ -191,6 +195,7 @@ void Game::CheckForCollisions(){
         score+=500;
         mysteryShip.alive = false;
         laser.active = false;
+        CheckForHighScore();
     }
     }
 
@@ -252,10 +257,43 @@ void Game::InitGame()
     lives = 3;
     run = true;
     score = 0;
+    highScore = loadHighScoreFromFile();
 
 }
 void Game::Reset(){
     spaceship.Reset();
     aliens.clear();
     alienLasers.clear();
+}
+
+void Game::CheckForHighScore()
+{
+    if(score>highScore){
+        highScore = score;
+        saveHighScoreToFile(highScore);
+    }
+}
+
+void Game::saveHighScoreToFile(int highScore)
+{
+    std::ofstream highScoreFile("highScore.txt");
+    if(highScoreFile.is_open()){
+        highScoreFile<< highScore;
+        highScoreFile.close();
+    }else {
+    std:: cerr <<"Failed To Save HighScore To File" << std::endl;
+    }
+}
+
+int Game::loadHighScoreFromFile()
+{
+    int loadedHighScore = 0;
+    std::ifstream highScoreFile("highScore.txt");
+    if(highScoreFile.is_open()){
+        highScoreFile >> loadedHighScore;
+        highScoreFile.close();
+    }else {
+        std:: cerr<< "Failed to Load HighScore to File" <<std::endl;
+    }
+    return loadedHighScore;
 }
