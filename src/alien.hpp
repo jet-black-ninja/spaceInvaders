@@ -7,6 +7,7 @@ class Alien{
     void Draw();
     void Update(int direction);
     int GetType();
+    Rectangle getRect();
     static void UnloadImages();
     static Texture2D alienImages[3];
     int type;
